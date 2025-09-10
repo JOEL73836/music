@@ -169,6 +169,6 @@ LOGGING = {
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 AUTHENTICATION_BACKENDS = [
-    'axes.backends.AxesStandaloneBackend',  # ✅ tracks failed logins
+    #'axes.backends.AxesStandaloneBackend',  # ✅ tracks failed logins
     'django.contrib.auth.backends.ModelBackend',  # default Django backend
 ]
