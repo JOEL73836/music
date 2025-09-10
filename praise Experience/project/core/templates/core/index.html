@@ -1,0 +1,1507 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAISE EXPERIENCE | Divine Streaming Platform</title>
+    <style>
+        :root {
+            --glory-gold: #80279c;
+            --royal-purple: #4B0082;
+            --holy-spirit-red: #bd1616;
+            --heavenly-white: #F8F8FF;
+            --divine-dark: #0A0A1A;
+            --worship-blue: #1E90FF;
+            --premium-black: #141414;
+            --glass-effect: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glow-effect: 0 0 15px rgba(128, 39, 156, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: var(--premium-black);
+            color: var(--heavenly-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ENHANCED HEADER WITH GLASS MORPHISM */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 4%;
+            z-index: 1000;
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        header.scrolled {
+            background: rgba(10, 10, 26, 0.95);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            padding: 10px 4%;
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--glory-gold), var(--holy-spirit-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--glory-gold), transparent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .nav-primary {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin-left: 40px;
+        }
+
+        .nav-secondary {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-primary li a, .nav-secondary a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-primary li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--glory-gold), var(--holy-spirit-red));
+            transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-radius: 2px;
+        }
+
+        .nav-primary li a:hover::before, 
+        .nav-primary li a.active::before {
+            width: 100%;
+        }
+
+        .nav-primary li a:hover, .nav-secondary a:hover {
+            color: var(--glory-gold);
+        }
+
+        /* LUXURY HERO SECTION */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4%;
+            z-index: 1;
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--divine-dark) 0%, var(--royal-purple) 100%);
+            isolation: isolate;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, 
+                    rgba(128, 39, 156, 0.3) 0%, 
+                    transparent 40%),
+                radial-gradient(circle at 80% 70%, 
+                    rgba(189, 22, 22, 0.3) 0%, 
+                    transparent 40%);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--premium-black), transparent);
+            z-index: -1;
+        }
+
+        .floating-headers {
+            position: relative;
+            margin-top: 100px;
+            max-width: 800px;
+        }
+
+        .floating-element {
+            display: block;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        .floating-element:nth-child(1) { animation-delay: 0s; }
+        .floating-element:nth-child(2) { animation-delay: 0.2s; }
+        .floating-element:nth-child(3) { animation-delay: 0.4s; }
+        .floating-element:nth-child(4) { animation-delay: 0.6s; }
+        .floating-element:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            color: var(--glory-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 600px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--glory-gold), var(--holy-spirit-red));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-secondary {
+            background: rgba(109, 109, 110, 0.3);
+            color: white;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(109, 109, 110, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn i {
+            font-size: 1.4rem;
+        }
+
+        .hero-info {
+            font-size: 1rem;
+            opacity: 0.8;
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* CUSTOM VIDEO PLAYER WITH GROWING COLORS */
+        .video-player-section {
+            padding: 80px 4%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .custom-player {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .custom-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .player-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .custom-player:hover .player-controls {
+            opacity: 1;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--glory-gold), var(--holy-spirit-red));
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                rgba(128, 39, 156, 0.8), 
+                rgba(189, 22, 22, 0.8),
+                rgba(30, 144, 255, 0.8));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .custom-player.playing .progress-bar::after {
+            opacity: 1;
+            animation: colorPulse 3s infinite alternate;
+        }
+
+        @keyframes colorPulse {
+            0% {
+                background: linear-gradient(90deg, 
+                    rgba(128, 39, 156, 0.8), 
+                    rgba(189, 22, 22, 0.8));
+            }
+            50% {
+                background: linear-gradient(90deg, 
+                    rgba(189, 22, 22, 0.8),
+                    rgba(30, 144, 255, 0.8));
+            }
+            100% {
+                background: linear-gradient(90deg, 
+                    rgba(30, 144, 255, 0.8),
+                    rgba(128, 39, 156, 0.8));
+            }
+        }
+
+        .control-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .left-controls, .right-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0.8;
+            transition: all 0.2s ease;
+            padding: 5px;
+        }
+
+        .control-btn:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            color: var(--glory-gold);
+        }
+
+        .play-pause {
+            font-size: 1.8rem;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .volume-slider {
+            width: 80px;
+            height: 5px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            outline: none;
+            opacity: 0;
+            transition: opacity 0.3s ease, width 0.3s ease;
+        }
+
+        .volume-control:hover .volume-slider {
+            opacity: 1;
+            width: 100px;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--glory-gold);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .volume-slider::-webkit-slider-thumb:hover {
+            background: var(--holy-spirit-red);
+            transform: scale(1.2);
+        }
+
+        .time-display {
+            font-size: 0.9rem;
+            color: white;
+            font-variant-numeric: tabular-nums;
+            min-width: 100px;
+        }
+
+        .fullscreen-btn {
+            font-size: 1.3rem;
+        }
+
+        .video-info {
+            margin-top: 30px;
+        }
+
+        .video-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            position: relative;
+            display: inline-block;
+        }
+
+        .video-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--glory-gold), transparent);
+        }
+
+        .video-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 25px;
+            max-width: 800px;
+        }
+
+        .video-meta {
+            display: flex;
+            gap: 20px;
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        .video-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ELEGANT VIDEO GRID SECTION - HALF-SIZE CARDS */
+        .video-grid-section {
+            padding: 80px 4%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+            color: white;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 80%;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--glory-gold), var(--holy-spirit-red));
+            border-radius: 3px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            aspect-ratio: 16/9;
+            background: var(--divine-dark);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--glory-gold), var(--holy-spirit-red));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            mix-blend-mode: overlay;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(128, 39, 156, 0.4);
+        }
+
+        .video-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 2;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .video-card:hover .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-icon i {
+            color: white;
+            font-size: 1rem;
+            margin-left: 3px;
+        }
+
+        .video-card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            z-index: 2;
+            transition: all 0.3s;
+        }
+
+        .video-card:hover .video-card-info {
+            padding-bottom: 12px;
+        }
+
+        .video-card-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: white;
+            line-height: 1.2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .video-card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* ARTIST GRID SECTION - PREMIUM DESIGN */
+        .artist-grid-section {
+            padding: 80px 4%;
+            background: linear-gradient(to bottom, var(--premium-black), var(--divine-dark));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .artist-grid-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, 
+                    rgba(128, 39, 156, 0.1) 0%, 
+                    transparent 40%),
+                radial-gradient(circle at 80% 70%, 
+                    rgba(189, 22, 22, 0.1) 0%, 
+                    transparent 40%);
+            z-index: 1;
+        }
+
+        .artist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .floating-artist {
+            animation: float-artist 8s ease-in-out infinite;
+            will-change: transform;
+        }
+        
+        @keyframes float-artist {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+            }
+            50% { 
+                transform: translateY(-15px) rotate(2deg); 
+            }
+        }
+        
+        .artist-grid:hover .floating-artist {
+            animation-play-state: paused;
+        }
+        
+        .artist-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            aspect-ratio: 1/1.2;
+            background: var(--glass-effect);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .artist-card:hover {
+            animation: none !important;
+            transform: translateY(-6px) scale(1.05) !important;
+            box-shadow: var(--glow-effect);
+            background: rgba(128, 39, 156, 0.1);
+            border-color: rgba(128, 39, 156, 0.3);
+        }
+
+        .artist-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--glory-gold);
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--royal-purple), var(--holy-spirit-red));
+            transition: all 0.5s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .artist-image::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, var(--glory-gold), var(--holy-spirit-red));
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .artist-card:hover .artist-image::before {
+            opacity: 0.7;
+        }
+
+        .artist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .artist-card:hover .artist-image img {
+            transform: scale(1.05);
+        }
+
+        .artist-initial {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .artist-info h3 {
+            color: white;
+            font-size: 0.85rem;
+            margin: 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .artist-card:hover .artist-info h3 {
+            color: var(--glory-gold);
+        }
+
+        /* LUXURY FOOTER */
+        footer {
+            background: linear-gradient(to bottom, var(--divine-dark), #000);
+            padding: 80px 4% 40px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(128, 39, 156, 0.2);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, 
+                    rgba(128, 39, 156, 0.05) 0%, 
+                    transparent 40%);
+            z-index: -1;
+        }
+
+        .footer-logo {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, var(--glory-gold), var(--holy-spirit-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-links-column h4 {
+            color: var(--glory-gold);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .footer-links-column ul {
+            list-style: none;
+        }
+
+        .footer-links-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links-column ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .footer-links-column ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--glory-gold);
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+
+        .footer-links-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-links-column ul li a:hover::before {
+            width: 100%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .social-links a:hover {
+            color: var(--glory-gold);
+            transform: translateY(-5px);
+            background: rgba(128, 39, 156, 0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .copyright {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+
+            .artist-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            
+            .nav-primary {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 100%;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 15px;
+            }
+            
+            .video-title {
+                font-size: 1.8rem;
+            }
+            
+            .artist-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 15px;
+            }
+            
+            .artist-image {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 12px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .control-buttons {
+                flex-wrap: wrap;
+            }
+            
+            .time-display {
+                order: 3;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-badge {
+                font-size: 0.9rem;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 12px;
+            }
+            
+            .artist-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+                gap: 12px;
+            }
+
+            .artist-image {
+                width: 50px;
+                height: 50px;
+            }
+
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .video-title {
+                font-size: 1.5rem;
+            }
+            
+            .video-player-section {
+                padding: 60px 4%;
+            }
+        }
+
+        /* SPECIAL EFFECTS */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- PARTICLES BACKGROUND -->
+    <div class="particles" id="particles"></div>
+
+    <!-- HEADER -->
+    <header id="main-header">
+        <div class="logo">PRAISE EXPERIENCE</div>
+        <div class="nav-container">
+            <ul class="nav-primary">
+                <li><a href="{% url 'core:index' %}" class="active">Home</a></li>
+                <li><a href="{% url 'core:audio' %}">Audio</a></li>
+                <li><a href="{% url 'core:video' %}">Video</a></li>
+                <li><a href="#">New & Popular</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="videos">
+        {% if request.GET.watch %}
+            <!-- VIDEO PLAYER SECTION -->
+            <section class="video-player-section">
+                {% for video in videos %}
+                    {% if video.id|stringformat:"s" == request.GET.watch %}
+                        <div class="custom-player" id="custom-player">
+                            <div class="video-container">
+                                <video class="custom-video" id="custom-video" poster="{{ video.cover_image.url }}">
+                                    <source src="{{ video.videos.url }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="player-controls" id="player-controls">
+                                    <div class="progress-container" id="progress-container">
+                                        <div class="progress-bar" id="progress-bar"></div>
+                                    </div>
+                                    <div class="control-buttons">
+                                        <div class="left-controls">
+                                            <button class="control-btn play-pause" id="play-pause">
+                                                <i class="fas fa-play" id="play-icon"></i>
+                                            </button>
+                                            <div class="volume-control">
+                                                <button class="control-btn volume-btn" id="volume-btn">
+                                                    <i class="fas fa-volume-up" id="volume-icon"></i>
+                                                </button>
+                                                <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="1">
+                                            </div>
+                                            <div class="time-display" id="time-display">00:00 / 00:00</div>
+                                        </div>
+                                        <div class="right-controls">
+                                            <button class="control-btn fullscreen-btn" id="fullscreen-btn">
+                                                <i class="fas fa-expand"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h1 class="video-title">{{ video.title }}</h1>
+                            {% if video.description %}
+                                <p class="video-description">{{ video.description }}</p>
+                            {% endif %}
+                            <div class="video-meta">
+                                <span><i class="fas fa-eye"></i> {{ video.views }} views</span>
+                                <span><i class="far fa-calendar-alt"></i> {{ video.created_at|date:"F j, Y" }}</span>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </section>
+        {% endif %}
+
+        <!-- VIDEO GRID SECTION -->
+        <section class="video-grid-section">
+            <br>
+            <h2 class="section-title">
+                {% if request.GET.watch %}More Videos{% else %}Featured Videos{% endif %}
+            </h2>
+            <div class="video-grid">
+                {% for video in videos %}
+                    <div class="video-card" onclick="window.location='?watch={{ video.id }}'">
+                        <div class="video-thumbnail">
+                            <img src="{{ video.cover_image.url }}" alt="{{ video.title }}">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-card-info">
+                            <h3 class="video-card-title">{{ video.title }}</h3>
+                            <div class="video-card-meta">
+                                <span><i class="fas fa-eye"></i> {{ video.views }}</span>
+                                <span><i class="far fa-clock"></i> {{ video.duration }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- ARTIST CATEGORY SECTION -->
+        <section class="video-grid-section artist-grid-section">
+            <h2 class="section-title" style="text-align: center;">Favorite Artists</h2>
+            <div class="artist-grid">
+                {% for artist in artist %}
+                <div class="artist-card floating-artist" style="animation-delay: {{ forloop.counter0|divisibleby:2|yesno:'0s,0.3s' }}" onclick="window.location='{% url 'item:artist_videos' artist.id %}'">
+                    <div class="artist-image floating-element">
+                        {% if artist.image %}
+                        <img src="{{ artist.image.url }}" alt="{{ artist.name }}">
+                        {% else %}
+                        <div class="artist-initial">{{ artist.name|first|upper }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="floating-element">{{ artist.name }}</h3>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">PRAISE EXPERIENCE</div>
+        <div class="footer-links">
+            <div class="footer-links-column">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="{% url 'core:audio' %}">Audio</a></li>
+                    <li><a href="{% url 'core:video' %}">Video</a></li>
+                    <li><a href="#">New & Popular</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-column">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="{% url 'core:logout' %}">Sign Out</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="{% url 'core:about' %}">About Us</a></li>
+                    <li><a href="{% url 'core:policy' %}">Legal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/1CYfQHyCs6/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://whatsapp.com/channel/0029VbAjuw7IiRovitBtev0V"> <i class="fab fa-whatsapp"> </i></a>
+            <a href="https://youtube.com/@praiseexperiencewithmalawianar?si=9Sqs-cMekgR312dS"> <i class="fab fa-youtube"></i> </a>
+        </div>
+        <p class="copyright">© 2025 Praise Experience. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 30 : 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 2;
+                const posX = Math.random() * 100;
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 10;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Custom Video Player Functionality
+        function initCustomVideoPlayer() {
+            const video = document.getElementById('custom-video');
+            if (!video) return;
+            
+            const player = document.getElementById('custom-player');
+            const playPauseBtn = document.getElementById('play-pause');
+            const playIcon = document.getElementById('play-icon');
+            const volumeBtn = document.getElementById('volume-btn');
+            const volumeIcon = document.getElementById('volume-icon');
+            const volumeSlider = document.getElementById('volume-slider');
+            const progressContainer = document.getElementById('progress-container');
+            const progressBar = document.getElementById('progress-bar');
+            const timeDisplay = document.getElementById('time-display');
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const playerControls = document.getElementById('player-controls');
+            
+            // Play/Pause functionality
+            playPauseBtn.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                    player.classList.add('playing');
+                } else {
+                    video.pause();
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                    player.classList.remove('playing');
+                }
+            });
+            
+            // Volume control
+            volumeBtn.addEventListener('click', () => {
+                if (video.volume > 0) {
+                    video.volume = 0;
+                    volumeIcon.classList.remove('fa-volume-up');
+                    volumeIcon.classList.add('fa-volume-mute');
+                    volumeSlider.value = 0;
+                } else {
+                    video.volume = 1;
+                    volumeIcon.classList.remove('fa-volume-mute');
+                    volumeIcon.classList.add('fa-volume-up');
+                    volumeSlider.value = 1;
+                }
+            });
+            
+            volumeSlider.addEventListener('input', () => {
+                video.volume = volumeSlider.value;
+                if (video.volume > 0) {
+                    volumeIcon.classList.remove('fa-volume-mute');
+                    volumeIcon.classList.add('fa-volume-up');
+                } else {
+                    volumeIcon.classList.remove('fa-volume-up');
+                    volumeIcon.classList.add('fa-volume-mute');
+                }
+            });
+            
+            // Progress bar
+            video.addEventListener('timeupdate', () => {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // Update time display
+                const currentMinutes = Math.floor(video.currentTime / 60);
+                const currentSeconds = Math.floor(video.currentTime % 60);
+                const durationMinutes = Math.floor(video.duration / 60);
+                const durationSeconds = Math.floor(video.duration % 60);
+                
+                timeDisplay.textContent = 
+                    `${String(currentMinutes).padStart(2, '0')}:${String(currentSeconds).padStart(2, '0')} / 
+                     ${String(durationMinutes).padStart(2, '0')}:${String(durationSeconds).padStart(2, '0')}`;
+            });
+            
+            // Seek functionality
+            progressContainer.addEventListener('click', (e) => {
+                const pos = (e.pageX - progressContainer.getBoundingClientRect().left) / progressContainer.offsetWidth;
+                video.currentTime = pos * video.duration;
+            });
+            
+            // Fullscreen functionality
+            fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    if (player.requestFullscreen) {
+                        player.requestFullscreen();
+                    } else if (player.webkitRequestFullscreen) {
+                        player.webkitRequestFullscreen();
+                    } else if (player.msRequestFullscreen) {
+                        player.msRequestFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                }
+            });
+            
+            // Show controls on video hover
+            player.addEventListener('mouseenter', () => {
+                playerControls.style.opacity = '1';
+            });
+            
+            player.addEventListener('mouseleave', () => {
+                if (!video.paused) {
+                    playerControls.style.opacity = '0';
+                }
+            });
+            
+            // Keep controls visible when paused
+            video.addEventListener('pause', () => {
+                playerControls.style.opacity = '1';
+            });
+            
+            // Auto hide controls when playing
+            let controlsTimeout;
+            video.addEventListener('play', () => {
+                clearTimeout(controlsTimeout);
+                controlsTimeout = setTimeout(() => {
+                    if (!player.matches(':hover')) {
+                        playerControls.style.opacity = '0';
+                    }
+                }, 3000);
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('main-header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            initCustomVideoPlayer();
+            
+            if (window.location.search.includes('watch=')) {
+                const videoPlayer = document.querySelector('.custom-video');
+                if (videoPlayer) {
+                    // Scroll to player
+                    videoPlayer.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Attempt autoplay (may be blocked by browser)
+                    const playPromise = videoPlayer.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            // Autoplay was prevented
+                            console.log("Autoplay prevented");
+                        });
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

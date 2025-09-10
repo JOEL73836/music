@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About praise experience - Divine Streaming Platform</title>
+    <style>
+        :root {
+            --glory-gold: #FFD700;
+            --royal-purple: #4B0082;
+            --holy-spirit-red: #AA0000;
+            --heavenly-white: #F8F8FF;
+            --divine-dark: #0A0A1A;
+            --premium-black: #141414;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: var(--premium-black);
+            color: var(--heavenly-white);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            z-index: 1000;
+            background: linear-gradient(to bottom, var(--premium-black), transparent);
+            transition: all 0.5s;
+        }
+
+        header.scrolled {
+            background: var(--premium-black);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--glory-gold), var(--holy-spirit-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--glory-gold);
+        }
+
+        /* HERO SECTION */
+        .about-hero {
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .about-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--glory-gold), var(--heavenly-white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        /* MISSION SECTION */
+        .mission-section {
+            padding: 80px 5%;
+            background: var(--divine-dark);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--glory-gold);
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mission-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .mission-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* VALUES SECTION */
+        .values-section {
+            padding: 80px 5%;
+            background: var(--premium-black);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            background: rgba(106, 13, 173, 0.2);
+            border-bottom-color: var(--glory-gold);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--glory-gold);
+            margin-bottom: 20px;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* TEAM SECTION */
+        .team-section {
+            padding: 80px 5%;
+            background: var(--divine-dark);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid var(--glory-gold);
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .team-position {
+            color: var(--glory-gold);
+            margin-bottom: 15px;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .team-social a {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .team-social a:hover {
+            color: var(--glory-gold);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, var(--glory-gold), var(--holy-spirit-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--glory-gold);
+        }
+
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .mission-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .mission-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="main-header">
+        <div class="logo"> PRAISE EXPERIENCE</div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'core:index' %}">Home</a></li>
+                <li><a href="{% url 'core:video' %}">Videos</a></li>
+                <li><a href="{% url 'core:audio' %}">Audio</a></li>
+                <li><a href="" class="active">About</a></li>
+                <li><a href="{% url 'core:video' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="about-hero">
+        <h1>Our Divine Mission</h1>
+        <p>Bringing the power of gospel music and worship to millions around the world</p>
+    </section>
+
+    <!-- MISSION SECTION -->
+    <section class="mission-section">
+        <h2 class="section-title">Our Story</h2>
+        <div class="mission-content">
+            <div class="mission-text">
+                <p>......infoamtion about praise experience </p>
+            </div>
+            <div class="mission-image">
+                <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Worship Team">
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES SECTION -->
+    <section class="values-section">
+        <h2 class="section-title">Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-cross"></i>
+                </div>
+                <h3 class="value-title">Faith First</h3>
+                <p>We prioritize spiritual integrity in all we do, ensuring our content glorifies God and edifies believers.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="value-title">Excellence</h3>
+                <p>We deliver premium quality content with production values that honor the message we share.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="value-title">Community</h3>
+                <p>We build bridges between churches, artists, and believers worldwide through shared worship.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3 class="value-title">Innovation</h3>
+                <p>We embrace technology to spread the gospel in new and impactful ways.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3 class="value-title">Service</h3>
+                <p>We're committed to serving the global church by making gospel content accessible to all.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-dove"></i>
+                </div>
+                <h3 class="value-title">Worship</h3>
+                <p>At our core, we exist to facilitate authentic worship experiences through media.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team-section">
+        <h2 class="section-title">Meet Our Leadership</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="David Johnson">
+                </div>
+                <h3 class="team-name">name ..</h3>
+                <p class="team-position">Founder & CEO</p>
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Man Avatar">
+                </div>
+                <h3 class="team-name">name..</h3>
+                <p class="team-position">Chief Content Officer</p>
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Michael Brown">
+                </div>
+                <h3 class="team-name">name..</h3>
+                <p class="team-position">Technical Director</p>
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Grace Mbeki">
+                </div>
+                <h3 class="team-name">name.. </h3>
+                <p class="team-position">Ministry Relations</p>
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">PRAISE EXPERIENCE</div>
+        <div class="footer-links">
+           <li><a href="{% url 'core:index' %}" class="active">Home</a></li>
+            <li><a href="{% url 'core:audio' %}">Audio</a></li>
+            <li><a href="{% url 'core:video' %}">Video</a></li>
+        </div>
+        <p class="copyright">© 2025 PRAISE EXPERIENCE. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

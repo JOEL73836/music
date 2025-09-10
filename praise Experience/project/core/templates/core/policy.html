@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praise Eperience  - Policies</title>
+    <style>
+        :root {
+            --glory-gold: #FFD700;
+            --royal-purple: #4B0082;
+            --holy-spirit-red: #AA0000;
+            --heavenly-white: #F8F8FF;
+            --divine-dark: #0A0A1A;
+            --premium-black: #141414;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: var(--premium-black);
+            color: var(--heavenly-white);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            z-index: 1000;
+            background: var(--premium-black);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--glory-gold), var(--holy-spirit-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--glory-gold);
+        }
+
+        /* MAIN CONTENT */
+        main {
+            padding: 100px 5% 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .policy-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .policy-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--glory-gold), var(--heavenly-white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .policy-header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .policy-section {
+            margin-bottom: 60px;
+        }
+
+        .policy-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--glory-gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .policy-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: var(--royal-purple);
+        }
+
+        .policy-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: var(--heavenly-white);
+        }
+
+        .policy-section p, .policy-section ul {
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .policy-section ul {
+            padding-left: 20px;
+        }
+
+        .policy-section li {
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, var(--glory-gold), var(--holy-spirit-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--glory-gold);
+        }
+
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .policy-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .policy-section h3 {
+                font-size: 1.3rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .policy-header h1 {
+                font-size: 2rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Praise Eperience</div>
+        <nav>
+            <ul>
+             <li><a href="{% url 'core:index' %}" class="active">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="policy-header">
+            <h1>Our Policies</h1>
+            <p>Transparency and trust are at the core of our mission. Please review our policies to understand how we operate and protect your information.</p>
+        </div>
+
+        <!-- PRIVACY POLICY SECTION -->
+        <section class="policy-section">
+            <h2>Privacy Policy</h2>
+            <p>Last Updated: January 1, 2023</p>
+
+            <h3>1. Information We Collect</h3>
+            <p>We collect information to provide better services to all our users. The types of information we collect include:</p>
+            <ul>
+                <li><strong>Account Information:</strong> When you create an account, we collect your name, email address, and password.</li>
+                <li><strong>Usage Data:</strong> We collect information about how you interact with our services, including watch history and preferences.</li>
+                <li><strong>Device Information:</strong> We collect device-specific information such as hardware model, operating system, and browser type.</li>
+                <li><strong>Cookies:</strong> We use cookies and similar technologies to track activity on our service.</li>
+            </ul>
+
+            <h3>2. How We Use Your Information</h3>
+            <p>We use the information we collect for various purposes:</p>
+            <ul>
+                <li>To provide and maintain our service</li>
+                <li>To notify you about changes to our service</li>
+                <li>To allow you to participate in interactive features</li>
+                <li>To provide customer support</li>
+                <li>To gather analysis to improve our service</li>
+                <li>To monitor usage of our service</li>
+                <li>To detect and prevent technical issues</li>
+            </ul>
+
+            <h3>3. Data Security</h3>
+            <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.</p>
+
+            <h3>4. Your Data Rights</h3>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Access, update or delete your personal information</li>
+                <li>Rectify inaccurate or incomplete data</li>
+                <li>Object to our processing of your personal data</li>
+                <li>Request restriction of processing your personal data</li>
+                <li>Request portability of your personal data</li>
+            </ul>
+        </section>
+
+        <!-- TERMS OF SERVICE SECTION -->
+        <section class="policy-section">
+            <h2>Terms of Service</h2>
+            <p>Last Updated: January 1, 2023</p>
+
+            <h3>1. Acceptance of Terms</h3>
+            <p>By accessing or using GospelFlix, you agree to be bound by these Terms. If you disagree, you may not access the service.</p>
+
+            <h3>2. User Accounts</h3>
+            <p>When you create an account with us, you must provide accurate information. You are responsible for maintaining the confidentiality of your account.</p>
+
+            <h3>3. Content</h3>
+            <p>All content on GospelFlix is protected by copyright laws. You may not reproduce, distribute, or create derivative works without authorization.</p>
+
+            <h3>4. Prohibited Activities</h3>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use the service for any illegal purpose</li>
+                <li>Attempt to gain unauthorized access to our systems</li>
+                <li>Interfere with or disrupt the service</li>
+                <li>Use any automated system to access the service</li>
+                <li>Share your account credentials with others</li>
+            </ul>
+
+            <h3>5. Subscription and Payments</h3>
+            <p>Some features may require payment. You agree to pay all charges for purchases made under your account.</p>
+
+            <h3>6. Termination</h3>
+            <p>We may terminate or suspend your account immediately for any violation of these Terms.</p>
+
+            <h3>7. Changes to Terms</h3>
+            <p>We reserve the right to modify these terms at any time. Continued use after changes constitutes acceptance.</p>
+        </section>
+
+        <div class="last-updated">
+            <p>.....</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Praise Eperience</div>
+        <div class="footer-links">
+            <li><a href="{% url 'core:index' %}" class="active">Home</a></li>
+            <li><a href="{% url 'core:audio' %}">Audio</a></li>
+            <li><a href="{% url 'core:video' %}">Video</a></li>
+        </div>
+        <p class="copyright">© 2025 Praise Eperience. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
