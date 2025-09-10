@@ -122,8 +122,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
 
 
-AXES_FAILURE_LIMIT = 5
-AXES_COOLOFF_TIME = timedelta(minutes=30) 
+#AXES_FAILURE_LIMIT = 5
+#AXES_COOLOFF_TIME = timedelta(seconds=10) 
 AXES_LOCKOUT_CALLABLE = None
 
 
