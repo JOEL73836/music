@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tigulitse Index</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Tigulitse</h1>
+        <p>Showcasing images, CSS, and JS in Django</p>
+    </header>
+
+    <main>
+        <!-- Image Section -->
+        <section id="gallery">
+            <h2>Image Gallery</h2>
+            <img src="{% static 'core/images/praise.jpg' %}" alt="Praise Image" class="gallery-image">
+        </section>
+
+        <!-- Button to trigger JS -->
+        <button id="alertButton">Click Me!</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tigulitse. All rights reserved.</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="{% static 'core/js/app.js' %}"></script>
+</body>
+</html>
