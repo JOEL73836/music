@@ -20,7 +20,7 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG =  config("DEBUG",cast=bool)
 
 # Set your domain(s) or server IP
-ALLOWED_HOSTS =config("ALLOWED_HOSTS").split() 
+ALLOWED_HOSTS =config("ALLOWED_HOSTS").split(",") 
 
 
 
