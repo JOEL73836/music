@@ -121,10 +121,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
 
-
-#AXES_FAILURE_LIMIT = 5
-#AXES_COOLOFF_TIME = timedelta(seconds=10) 
+AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True
+AXES_FAILURE_LIMIT = 5
+AXES_COOLOFF_TIME = timedelta(seconds=30) 
 AXES_LOCKOUT_CALLABLE = None
+AXES_WHITELIST_IPS = ['127.0.0.1']  # add your real public IP here 
+AXES_NEVER_LOCKOUT_WHITELIST = True
 
 
 # -------------------------------------------------------------------
