@@ -116,8 +116,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"  # collectstatic output
 
 STATICFILES_DIRS = [BASE_DIR / 'core/static']  # dev assets
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
 
@@ -174,3 +174,11 @@ AUTHENTICATION_BACKENDS = [
     #'axes.backends.AxesStandaloneBackend',  # ✅ tracks failed logins
     'django.contrib.auth.backends.ModelBackend',  # default Django backend
 ]
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.getenv("dk5q2y92u"),
+    "API_KEY": os.getenv("547925934776484"),
+    "API_SECRET": os.getenv("M9zlTYXTcq2_1U0K1fZ9m_ZV8XE"),
+}
