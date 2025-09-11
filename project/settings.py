@@ -116,8 +116,19 @@ STATIC_ROOT = BASE_DIR / "staticfiles"  # collectstatic output
 
 STATICFILES_DIRS = [BASE_DIR / 'core/static']  # dev assets
 
-#MEDIA_URL = '/media/'
-#MEDIA_ROOT = BASE_DIR / 'media'
+if config("RENDER", default=False, cast=bool) or not DEBUG:
+    DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+    CLOUDINARY_STORAGE = {
+        "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME"),
+        "API_KEY": config("CLOUDINARY_API_KEY"),
+        "API_SECRET": config("CLOUDINARY_API_SECRET"),
+    }
+else:
+    MEDIA_URL = "/media/"
+    MEDIA_ROOT = BASE_DIR / "media"
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
 
@@ -175,10 +186,3 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # default Django backend
 ]
 
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": os.getenv("dk5q2y92u"),
-    "API_KEY": os.getenv("547925934776484"),
-    "API_SECRET": os.getenv("M9zlTYXTcq2_1U0K1fZ9m_ZV8XE"),
-}
