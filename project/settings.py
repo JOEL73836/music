@@ -120,7 +120,7 @@ if config("RENDER", default=False, cast=bool) or not DEBUG:
     DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
     CLOUDINARY_STORAGE = {
-        "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME", default=""),
+        "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME",default=""),
         "API_KEY": config("CLOUDINARY_API_KEY", default=""),
         "API_SECRET": config("CLOUDINARY_API_SECRET", default=""),
     }
